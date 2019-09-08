@@ -1,0 +1,10 @@
+# Configurations
+config.py
+
+# PyCharm
+.idea/
+venv/
+
+# pycache
+__pycache__/
+*/__pycache__/
