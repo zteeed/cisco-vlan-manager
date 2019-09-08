@@ -1,0 +1,45 @@
+version: '2'
+services:
+
+  redis:
+    image: redis
+    restart: always
+    networks:
+      - backend
+
+  worker:
+    restart: always
+    build:
+      context: ./worker
+    networks:
+      - backend
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+    ports: 
+      - "8080:80"
+      - "4433:443"
+    networks:
+      - frontend
+
+  api:
+    restart: always
+    build: 
+      context: ./api
+    ports: 
+      - "8081:80"
+      - "4434:443"
+    networks:
+      - frontend
+      - backend
+
+
+networks:
+
+  frontend:
+    driver: bridge
+
+  backend:
+    driver: bridge
