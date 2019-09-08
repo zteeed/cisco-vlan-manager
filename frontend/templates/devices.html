@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Devices -->
+<article id="work" class="wrapper style2">
+	<div class="container">
+		<header>
+			<h2>HackademINT CISCO devices</h2>
+			<p>Switch: SG500-52 | Router: WS-C3750G-48PS</p>
+		</header>
+		<div class="row aln-center">
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-server"></span>
+					<h3>Switch HackademINT</h3>
+					<p>IP: 172.16.0.252</p>
+					<a href="/config/1" class="button large scrolly" style="font-size: 18px; background-color: #454545">
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show configuration
+					</a>
+				</section>
+			</div>
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon solid featured fa-server"></span>
+					<h3>Switch EvryOne</h3>
+					<p>IP: 172.16.0.254</p>
+					<a href="/config/2" class="button large scrolly" style="font-size: 18px; background-color: #454545">
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show configuration
+					</a>
+				</section>
+			</div>
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-server"></span>
+					<h3>Router EvryOne</h3>
+					<p>IP: 172.16.0.251</p>
+					<a href="/config/3" class="button large scrolly" style="font-size: 18px; background-color: #454545">
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show configuration
+					</a>
+				</section>
+			</div>
+		</div>
+		<footer>
+			<a onclick='javascript:action("{{API_URL}}/action", "{\"type\": \"update\"}")' class="button large scrolly" style="max-width: 50em"><i style="padding-right: 15px" class="fa fa-retweet" aria-hidden="true"></i>Update all configurations (Last update: {{ date }})</a>
+		</footer>
+	</div>
+</article>
+{% endblock %}

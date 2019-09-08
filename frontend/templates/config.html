@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Devices -->
+<article id="work" class="wrapper style2">
+	<div class="container">
+		<header>
+			<h2>HackademINT CISCO configurations</h2>
+			<p>Device: {{obj.device_name}}</p>
+		</header>
+		<div class="row aln-center">
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-server"></span>
+					<h3>VLAN interfaces</h3>
+					<a
+							onclick="show_config('<ul style=\'margin-top: 20px\'>{% for item in obj.interfaces_vlan %}<li style=\'text-align: left\'>{{ item.text | safe }}</li><ul>{% for line in item.children %}<li style=\'text-align: left\'>{{ line.text.strip() }}</li>{% endfor %}</ul>{% endfor %}</ul>')"
+							class="button large scrolly" style="font-size: 18px; background-color: #454545"
+					>
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show
+					</a>
+				</section>
+			</div>
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon solid featured fa-server"></span>
+					<h3>Port-Channel interfaces</h3>
+					<a
+						onclick="show_config('<ul style=\'margin-top: 20px\'>{% for item in obj.interfaces_po %}<li style=\'text-align: left\'>{{ item.text | safe }}</li><ul>{% for line in item.children %}<li style=\'text-align: left\'>{{ line.text.strip() }}</li>{% endfor %}</ul>{% endfor %}</ul>')"
+						class="button large scrolly" style="font-size: 18px; background-color: #454545"
+                    >
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show
+					</a>
+				</section>
+			</div>
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-server"></span>
+					<h3>Gigabit<!--Ethernet--> interfaces</h3>
+					<a
+						onclick="show_config('<ul style=\'margin-top: 20px\'>{% for item in obj.interfaces_gi %}<li style=\'text-align: left\'>{{ item.text | safe }}</li><ul>{% for line in item.children %}<li style=\'text-align: left\'>{{ line.text.strip() }}</li>{% endfor %}</ul>{% endfor %}</ul>')"
+						class="button large scrolly" style="font-size: 18px; background-color: #454545"
+					>
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show
+					</a>
+				</section>
+			</div>
+		</div>
+		<footer>
+			<a href="/raw/{{obj.id}}" class="button large scrolly" style="max-width: 50em"><i style="padding-right: 15px" class="fa fa-retweet" aria-hidden="true"></i>Show raw configuration (Last update: {{ date }})</a>
+		</footer>
+	</div>
+</article>
+{% endblock %}

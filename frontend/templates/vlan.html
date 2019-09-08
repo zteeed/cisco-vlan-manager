@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Devices -->
+<article id="work" class="wrapper style2">
+	<div class="container">
+		<header>
+			<h2>HackademINT VLANs</h2>
+			<p>Switch: SG500-52 | Router: WS-C3750G-48PS</p>
+		</header>
+		<div class="row aln-center">
+            {% for vlan in vlan_data %}
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-connectdevelop"></span>
+					<h3>{{ vlan.name }}</h3>
+					<ul>
+						{% if vlan.description %}
+							<li style="text-align: left">Description: {{ vlan.description }}</li>
+						{% endif %}
+						{% if vlan.subnet %}
+							<li style="text-align: left">Subnet: {{ vlan.subnet }}</li>
+						{% endif %}
+					</ul>
+                    {% if vlan.id > 121 %}
+					<a onclick='remove_vlan("{{ API_URL }}/action", {{ vlan.id }})' style="font-size: 12px; background-color: #dd0000"
+					   class="button large scrolly">Delete VLAN</a>
+					{% endif %}
+				</section>
+			</div>
+			{% endfor %}
+		</div>
+		<footer>
+			<a onclick='add_vlan("{{ API_URL }}/action")' class="button large scrolly">Add a new VLAN</a>
+			<a onclick='action("{{ API_URL }}/action", "{\"type\": \"save\"}")' class="button large scrolly">Save configurations</a>
+		</footer>
+	</div>
+</article>
+{% endblock %}
