@@ -1,4 +1,3 @@
-version: '2'
 services:
 
   redis:
@@ -18,7 +17,7 @@ services:
     restart: always
     build:
       context: ./frontend
-    ports: 
+    ports:
       - "8080:80"
       - "4433:443"
     networks:
@@ -26,9 +25,9 @@ services:
 
   api:
     restart: always
-    build: 
+    build:
       context: ./api
-    ports: 
+    ports:
       - "8081:80"
       - "4434:443"
     networks:

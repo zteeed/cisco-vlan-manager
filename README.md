@@ -16,13 +16,13 @@ Replace the default configuration with your devices credentials (secret fiels is
 ## Install
 
 ```
-docker-compose up
+docker compose up
 ```
 
 If you need to rebuild docker images you can:
 ```bash
-docker-compose rm
-docker-compose --build --force-recreate
+docker compose rm
+docker compose --build --force-recreate
 ```
 
 
